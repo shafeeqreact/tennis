@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '/imports/api/contexts/contexts';
+import App from '/imports/ui/App';
 //import  CoursesContainer  from '/imports/api/containers/getCourses';
 //import Test from '/imports/ui/components/dashboard/test';
 //import '/imports/ui/stylesheets/dashboard/dashHome.scss';
@@ -29,11 +30,7 @@ export default DashHome = (props) => {
               </div>
               <div className="dash-stats">
                 <p className="is-size-4 has-text-white">Any Information</p>
-                <p className="is-size-6 has-text-white">link</p>
-              </div>
-              <div className="dash-stats">
-                <p className="is-size-4 has-text-white">0</p>
-                <p className="is-size-6 has-text-white">Info</p>
+                <p className="is-size-6 has-text-white"><App/></p>
               </div>
               <div className="dash-stats">
                 <button onClick={() => { Meteor.logout(() => { props.history.push('/') }) }}>Logout</button>

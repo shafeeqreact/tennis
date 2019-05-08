@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
+// import _ from 'lodash';
 import { withTracker } from 'meteor/react-meteor-data';
 import { categoriesData } from '../../../api/collections';
-import SignupDetails from '../signup/signupDetails';
-import ChooseAccount from '../signup/chooseAccount';
-import PersonalRelationship from '../signup/personalRelationship';
-import Roles from '../signup/roles';
-import AccountInfo from '../signup/accountInfo';
-import Privacy from '../signup/privacy';
+import App from '/imports/ui/App';
+// import SignupDetails from '../signup/signupDetails';
+// import ChooseAccount from '../signup/chooseAccount';
+// import PersonalRelationship from '../signup/personalRelationship';
+// import Roles from '../signup/roles';
+// import AccountInfo from '../signup/accountInfo';
+// import Privacy from '../signup/privacy';
 
 // App component - represents the whole registration app
 class SignUp extends Component {
@@ -216,28 +217,29 @@ class SignUp extends Component {
       );
     }
 
-    if (this.state.step === 1) {
-      this.validateParams();
-    }
+    return <App/>;
+    // if (this.state.step === 1) {
+    //   this.validateParams();
+    // }
 
-    const categories = this.props.data[0];
+    // const categories = this.props.data[0];
 
-    switch (this.state.step) {
-      case 1:
-        return (<SignupDetails categories={categories} state={this.state} onChange={this.handleChange} onSubmit={this.handleSubmit} />);
-      case 2:
-        return (<ChooseAccount categories={categories} onSelect={this.handleAccountSelect} />);
-      case 3:
-        if (this.state.account === 'Personal')
-          return (<PersonalRelationship categories={categories} state={this.state} onChange={this.handleChange} onSubmit={this.handleSubmit} onGoBackToAccount={this.handleGoBackToAccount} />);
-        return (<Roles categories={categories} state={this.state} onSelect={this.handleRoleSelect} onSubmit={this.handleSubmit} />);
-      case 4:
-        return (<AccountInfo state={this.state} onChange={this.handleChange} onFileChange={this.handleFileChange} onFileUpload={this.handleFileUpload} onSubmit={this.handleSubmit} />);
-      case 5:
-        return (<Privacy categories={categories} state={this.state} onChange={this.handleChange} onSubmit={this.handleSubmit} />);
-      default:
-        return null;
-    }
+    // switch (this.state.step) {
+    //   case 1:
+    //     return (<SignupDetails categories={categories} state={this.state} onChange={this.handleChange} onSubmit={this.handleSubmit} />);
+    //   case 2:
+    //     return (<ChooseAccount categories={categories} onSelect={this.handleAccountSelect} />);
+    //   case 3:
+    //     if (this.state.account === 'Personal')
+    //       return (<PersonalRelationship categories={categories} state={this.state} onChange={this.handleChange} onSubmit={this.handleSubmit} onGoBackToAccount={this.handleGoBackToAccount} />);
+    //     return (<Roles categories={categories} state={this.state} onSelect={this.handleRoleSelect} onSubmit={this.handleSubmit} />);
+    //   case 4:
+    //     return (<AccountInfo state={this.state} onChange={this.handleChange} onFileChange={this.handleFileChange} onFileUpload={this.handleFileUpload} onSubmit={this.handleSubmit} />);
+    //   case 5:
+    //     return (<Privacy categories={categories} state={this.state} onChange={this.handleChange} onSubmit={this.handleSubmit} />);
+    //   default:
+    //     return null;
+    // }
   }
 }
 
